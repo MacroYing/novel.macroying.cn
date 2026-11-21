@@ -1,6 +1,16 @@
 name: Deploy to Retinbox Web Hosting
 
-on: push
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
+permissions:
+  contents: read
 
 jobs:
   deploy:
