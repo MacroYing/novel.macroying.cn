@@ -57,3 +57,10 @@ serve.sh / stop.sh       本地后台启停脚本
 ## 写作
 
 在 `docs/works/` 下新建 Markdown 文件即可，导航与侧边栏配置见 `docs/.vuepress/config.ts`。
+
+## 协议
+
+- **站点本身**（页面、样式与站点代码）：[CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hans)，可署名非商业地分享，不得商用
+- **文学文本**（`docs/` 下的文章与作品）：著作权归作者所有，未开源，转载与改编需先获许可
+
+文字内容与站点页面分开授权，详见 [版权说明](docs/copyright.md) 与 [LICENSE](LICENSE)。

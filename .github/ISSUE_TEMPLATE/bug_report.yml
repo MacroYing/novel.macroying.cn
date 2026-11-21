@@ -1,0 +1,33 @@
+name: 网站问题
+description: 页面打不开、样式错乱、链接失效等
+title: "[问题] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈！请尽量把复现步骤写清楚，方便排查。
+  - type: input
+    id: page
+    attributes:
+      label: 页面地址
+      placeholder: "https://novel.macroying.cn/..."
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: 发生了什么
+      description: 期望看到什么、实际看到了什么
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: 浏览器 / 设备
+      placeholder: "iPhone Safari 18 / Chrome 130 / 微信内置浏览器"
+  - type: textarea
+    id: extra
+    attributes:
+      label: 截图或补充
+      description: 可直接粘贴截图

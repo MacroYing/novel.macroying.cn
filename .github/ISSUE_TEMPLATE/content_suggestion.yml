@@ -1,0 +1,21 @@
+name: 内容建议
+description: 勘误、排版建议，或想看到的内容
+title: "[建议] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        谢谢你的建议。文字作品的转载与授权请先看[版权说明](https://novel.macroying.cn/copyright.html)。
+  - type: input
+    id: where
+    attributes:
+      label: 相关页面 / 章节
+      placeholder: "https://novel.macroying.cn/..."
+  - type: textarea
+    id: idea
+    attributes:
+      label: 建议内容
+      description: 勘误请注明原句与建议改法
+    validations:
+      required: true
