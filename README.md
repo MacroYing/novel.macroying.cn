@@ -58,26 +58,6 @@ serve.sh / stop.sh       本地后台启停脚本
 
 在 `docs/works/` 下新建 Markdown 文件即可，导航与侧边栏配置见 `docs/.vuepress/config.ts`。
 
-
-## 反向同步 / 备份
-
-热铁盒官方只提供「推送到 Git → 自动部署」这一个方向，没有反向同步功能，
-其 WAF 也会拦截云服务器 / 代理 IP，所以不适合在 GitHub Actions 里跑。
-
-需要把线上内容拉回来对照或备份时，在本地执行：
-
-```bash
-python3 tools/rth-pull.py                 # 抓取到 retiehe-mirror/（默认域名 novel.macroying.cn）
-python3 tools/rth-pull.py --site xxx.rth1.xyz --out /tmp/mirror
-```
-
-脚本按站点公开 URL 抓取页面与资源，生成 `retiehe-mirror/manifest.json` 记录每个文件的 SHA-256；
-再次运行会按上次清单列出「新增 / 修改 / 删除」，也就是线上相对上次快照改了什么。
-镜像目录默认不纳入 Git（`.gitignore` 里已忽略）。
-
-注意：线上是 `docs/.vuepress/dist` 的构建产物，不是源码。反向拉回来的文件用于**对照与备份**，
-要长期保留改动仍应回到 Markdown 源码编辑、再 push 部署，否则下次部署会覆盖线上。
-
 ## 协议
 
 - **站点本身**（页面、样式与站点代码）：[CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hans)，可署名非商业地分享，不得商用
