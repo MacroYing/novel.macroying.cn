@@ -4,3 +4,4 @@ docs/.vuepress/.temp/
 docs/.vuepress/dist/
 *.log
 .DS_Store
+.env

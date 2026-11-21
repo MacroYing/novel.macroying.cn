@@ -9,7 +9,8 @@
     "build": "vuepress build docs",
     "clean": "vuepress clean docs",
     "serve": "bash serve.sh",
-    "stop": "bash stop.sh"
+    "stop": "bash stop.sh",
+    "deploy": "deno -Ar https://host.retiehe.com/cli deploy"
   },
   "devDependencies": {
     "@vuepress/bundler-vite": "2.0.0-rc.32",

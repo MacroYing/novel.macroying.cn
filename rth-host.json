@@ -1,0 +1,5 @@
+{
+	"outdir": "docs/.vuepress/dist",
+	"site": "novel.macroying.cn",
+	"build": "build"
+}
