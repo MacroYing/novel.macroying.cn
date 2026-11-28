@@ -39,10 +39,6 @@ export default defineConfig({
           items: [
             { text: '首页', link: '/' },
             { text: '作品', link: '/works/' },
-            {
-              text: '编辑首页',
-              link: 'https://github.com/MacroYing/novel.macroying.cn/edit/main/docs/index.md',
-            },
           ],
         },
         {

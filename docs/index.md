@@ -44,4 +44,4 @@ features:
 
 这里放我写的东西：小说、短篇、散文，或者只是随手记下的句子。
 
-作品见[作品页](/works/)，作者见[关于](/about.html)。
+作品见[作品页](/works/)，作者见[关于](/about.html)。想改这页的话，可以直接[在 GitHub 编辑首页](https://github.com/MacroYing/novel.macroying.cn/edit/main/docs/index.md)。
