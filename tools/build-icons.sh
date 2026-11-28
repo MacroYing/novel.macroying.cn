@@ -6,12 +6,12 @@
 #   bash tools/build-icons.sh                       # 用默认的 6 个图标
 #   bash tools/build-icons.sh search dark_mode ...  # 指定图标名（Material Symbols 的 ligature 名）
 #
-# 产物：docs/public/fonts/material-symbols-icons.woff2
+# 产物：docs/public/fonts/material-symbols-rounded.woff2（Rounded 风格）
 # 之后再改 docs/index.md 的 features.icon，填对应图标名即可。
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
-OUT=docs/public/fonts/material-symbols-icons.woff2
+OUT=docs/public/fonts/material-symbols-rounded.woff2
 WORK=$(mktemp -d)
 trap 'rm -rf "$WORK"' EXIT
 
@@ -25,7 +25,7 @@ echo "图标：${ICONS[*]}"
 cd "$WORK"
 npm pack @material-symbols/font-400 --silent >/dev/null
 tar -xzf material-symbols-font-400-*.tgz
-FONT=package/material-symbols-outlined.woff2
+FONT=package/material-symbols-rounded.woff2
 
 python3 - "$FONT" "$TEXT" "$OLDPWD/$OUT" <<'PY'
 import sys
