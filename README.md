@@ -47,7 +47,9 @@ docs/                    站点内容
 ├── index.md             首页（hero、特性卡片）
 ├── about.md             关于
 ├── copyright.md         版权说明
-├── works/               作品页
+├── wujieyoubian/        无界有边（长篇连载）
+├── settings/            设定集
+├── stories/             短篇
 ├── public/              静态资源（头像、favicon、字体）
 └── .vitepress/
     ├── config.mts       站点标题、导航、侧边栏、搜索
@@ -64,6 +66,7 @@ serve.sh / stop.sh       本地后台启停脚本
 
 - 小说 / 散文页在 frontmatter 里写 `pageClass: chapter-page`（首行缩进）
 - 诗页写 `pageClass: poem-page`（逐行居中）
+- 三个栏目分别放在 `docs/wujieyoubian/`、`docs/settings/`、`docs/stories/`，导航与侧边栏见 `docs/.vitepress/config.mts`
 - 导航与侧边栏配置见 `docs/.vitepress/config.mts`
 
 ## 协议

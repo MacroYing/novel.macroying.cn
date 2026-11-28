@@ -27,32 +27,43 @@ export default defineConfig({
 
     nav: [
       { text: '首页', link: '/' },
-      { text: '作品', link: '/works/' },
+      { text: '无界有边', link: '/wujieyoubian/' },
+      { text: '设定集', link: '/settings/' },
+      { text: '短篇', link: '/stories/' },
       { text: '关于', link: '/about.html' },
-      { text: '版权', link: '/copyright.html' },
     ],
 
     sidebar: {
+      '/wujieyoubian/': [
+        {
+          text: '无界有边',
+          items: [{ text: '目录', link: '/wujieyoubian/' }],
+          // 新增章节后按这个格式登记：
+          // { text: '第一章', link: '/wujieyoubian/chapter-01.html' },
+        },
+      ],
+      '/settings/': [
+        {
+          text: '设定集',
+          items: [{ text: '目录', link: '/settings/' }],
+        },
+      ],
+      '/stories/': [
+        {
+          text: '短篇',
+          items: [{ text: '目录', link: '/stories/' }],
+        },
+      ],
       '/': [
         {
           text: '站点',
           items: [
             { text: '首页', link: '/' },
-            { text: '作品', link: '/works/' },
-          ],
-        },
-        {
-          text: '关于',
-          items: [
             { text: '关于', link: '/about.html' },
             { text: '版权与转载', link: '/copyright.html' },
           ],
         },
       ],
-      // 加了分类后按这个格式登记（键是路径前缀）：
-      // '/works/novel/': [
-      //   { text: '连载', items: [{ text: '第一章', link: '/works/novel/chapter-1.html' }] },
-      // ],
     },
 
     search: {

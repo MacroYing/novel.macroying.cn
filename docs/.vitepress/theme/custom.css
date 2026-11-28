@@ -23,7 +23,7 @@
 /* 只有首页特性卡片用到；再次增删图标时用 tools/build-icons.sh 重新生成 */
 @font-face {
   font-family: 'Material Symbols Rounded';
-  src: url('/fonts/material-symbols-rounded.2f6cccd0.woff2') format('woff2');
+  src: url('/fonts/material-symbols-rounded.5af9a1f2.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;

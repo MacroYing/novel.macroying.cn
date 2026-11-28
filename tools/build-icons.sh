@@ -18,7 +18,7 @@ trap 'rm -rf "$WORK"' EXIT
 
 ICONS=("$@")
 if [ ${#ICONS[@]} -eq 0 ]; then
-  ICONS=(auto_stories format_align_left dark_mode search smartphone rocket_launch)
+  ICONS=(auto_stories library_books description format_align_left search rocket_launch)
 fi
 TEXT=$(printf '%s' "${ICONS[@]}")
 echo "图标：${ICONS[*]}"
