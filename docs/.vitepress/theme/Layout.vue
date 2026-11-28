@@ -5,6 +5,10 @@ import { onMounted, onUnmounted, ref } from 'vue'
 const Layout = DefaultTheme.Layout
 
 const showBackTop = ref(false)
+const progress = ref(0)
+
+// 环形进度条：半径 20 的圆周长（viewBox 44 × 44）
+const RING_LENGTH = 2 * Math.PI * 20
 
 let onScroll: (() => void) | undefined
 
@@ -19,6 +23,9 @@ onMounted(() => {
     root.style.setProperty('--ms-nav-alpha', t.toFixed(3))
     root.style.setProperty('--ms-nav-blur', `${(t * MAX_BLUR).toFixed(1)}px`)
     showBackTop.value = y > 400
+
+    const max = document.documentElement.scrollHeight - window.innerHeight
+    progress.value = max > 0 ? Math.min(1, Math.max(0, y / max)) : 0
   }
   window.addEventListener('scroll', onScroll, { passive: true })
   window.addEventListener('resize', onScroll, { passive: true })
@@ -51,6 +58,17 @@ function scrollToTop() {
         title="回到顶部"
         @click="scrollToTop"
       >
+        <svg class="ms-back-top__ring" viewBox="0 0 44 44" aria-hidden="true">
+          <circle class="ring-track" cx="22" cy="22" r="20" />
+          <circle
+            class="ring-progress"
+            cx="22"
+            cy="22"
+            r="20"
+            :stroke-dasharray="RING_LENGTH"
+            :stroke-dashoffset="RING_LENGTH * (1 - progress)"
+          />
+        </svg>
         <svg class="ms-back-top__icon" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M7.41 15.41 12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="currentColor" />
         </svg>

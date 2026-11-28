@@ -160,7 +160,6 @@
   height: 2.75rem;
   padding: 0;
   overflow: hidden;
-  border: 1px solid var(--vp-c-divider);
   border-radius: 50%;
   background: color-mix(in srgb, var(--vp-c-bg) 72%, transparent);
   -webkit-backdrop-filter: saturate(180%) blur(12px);
@@ -196,8 +195,33 @@
 
 .ms-back-top__icon {
   display: block;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+/* 环形阅读进度：外圈随滚动填充 */
+.ms-back-top__ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  pointer-events: none;
+}
+
+.ms-back-top__ring circle {
+  fill: none;
+  stroke-width: 2;
+}
+
+.ms-back-top__ring .ring-track {
+  stroke: var(--vp-c-divider);
+}
+
+.ms-back-top__ring .ring-progress {
+  stroke: var(--vp-c-brand-1);
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.12s linear;
 }
 
 @media (min-width: 60rem) {

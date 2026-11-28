@@ -2,20 +2,26 @@
 
 <p class="chapter-meta">MacroYing 的文学小站</p>
 
-macroSpace 是我的文学小站，用来放自己写的小说、短篇和随笔，也会记一些零散的句子。
+macroSpace 是个人文学创作站点，收录作者创作的小说、短篇与随笔，以及平日随手记下的片段。内容仍在陆续补充，作品部分可从[作品页](/works/)进入阅读。
 
-内容还在慢慢补，目前可以从[作品页](/works/)进入阅读。
+## 关于「只送大脑」
 
-## 只送大脑
+站名出自刘慈欣《三体 II · 死神永生》。云天明仅余一颗大脑，被送入无垠宇宙；肉身留在原地，而好奇心先行出发。
 
-站名取自刘慈欣《三体 II · 死神永生》。云天明只剩一颗大脑，被送入无边的宇宙——身体留在原地，好奇心先出发。
+本站取此意象，意在保存那些不肯安分的念头。
 
-这个站想留下的，也是那点不肯安分的念头。
+## 关于本站
 
-## 关于站点
+本站以 VitePress 2 构建，采用绿色主题，托管于 [novel.macroying.cn](https://novel.macroying.cn)。其他内容与作品见主站 [macroying.cn](https://macroying.cn/)。
 
-全站用 VitePress 2 构建，绿色主题，托管在 [novel.macroying.cn](https://novel.macroying.cn)。页面与排版的授权见[版权与转载](/copyright.html)，文字作品版权归作者所有。
+页面与排版的授权条款见[版权与转载](/copyright.html)；文字作品的著作权归作者所有。
 
 ## 联络
 
-想聊点什么，可以到[主站](https://macroying.cn/)留言，或者在 [GitHub](https://github.com/MacroYing) 上找我。
+如对本站内容有任何疑问、建议或转载意向，可通过以下方式联系：
+
+- 电子邮箱：[2864297054@qq.com](mailto:2864297054@qq.com)
+- QQ：[2864297054](https://wpa.qq.com/msgrd?v=3&uin=2864297054&site=qq&menu=yes)
+- 哔哩哔哩：[@MacroYing](https://space.bilibili.com/495059212)
+- X：[@macroying](https://x.com/macroying)
+- GitHub：[@MacroYing](https://github.com/MacroYing)
