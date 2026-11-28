@@ -30,7 +30,6 @@ export default defineConfig({
       { text: '作品', link: '/works/' },
       { text: '关于', link: '/about.html' },
       { text: '版权', link: '/copyright.html' },
-      { text: '写作', link: '/editor.html' },
     ],
 
     sidebar: {
@@ -40,6 +39,10 @@ export default defineConfig({
           items: [
             { text: '首页', link: '/' },
             { text: '作品', link: '/works/' },
+            {
+              text: '编辑首页',
+              link: 'https://github.com/MacroYing/novel.macroying.cn/edit/main/docs/index.md',
+            },
           ],
         },
         {
@@ -47,7 +50,6 @@ export default defineConfig({
           items: [
             { text: '关于作者', link: '/about.html' },
             { text: '版权与转载', link: '/copyright.html' },
-            { text: '写作台', link: '/editor.html' },
           ],
         },
       ],
@@ -92,7 +94,10 @@ export default defineConfig({
     sidebarMenuLabel: '目录',
     returnToTopLabel: '回到顶部',
     lastUpdated: false,
-    editLink: false,
+    editLink: {
+      pattern: 'https://github.com/MacroYing/novel.macroying.cn/edit/main/docs/:path',
+      text: '在 GitHub 编辑此页',
+    },
 
     socialLinks: [{ icon: 'github', link: 'https://github.com/MacroYing' }],
 
