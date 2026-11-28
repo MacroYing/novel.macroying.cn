@@ -3,7 +3,7 @@
 #
 # 依赖：npm、python3 + fonttools（pip install fonttools）
 # 用法：
-#   bash tools/build-icons.sh                       # 用默认的 6 个图标
+#   bash tools/build-icons.sh                       # 用默认的 7 个图标
 #   bash tools/build-icons.sh search dark_mode ...  # 指定图标名（Material Symbols 的 ligature 名）
 #
 # 产物：docs/public/fonts/material-symbols-rounded.woff2（Rounded 风格）
@@ -17,7 +17,7 @@ trap 'rm -rf "$WORK"' EXIT
 
 ICONS=("$@")
 if [ ${#ICONS[@]} -eq 0 ]; then
-  ICONS=(auto_stories format_align_left dark_mode search smartphone rocket_launch)
+  ICONS=(auto_stories format_align_left dark_mode search smartphone rocket_launch keyboard_arrow_up)
 fi
 TEXT=$(printf '%s' "${ICONS[@]}")
 echo "图标：${ICONS[*]}"

@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import DefaultTheme from 'vitepress/theme'
-import { onMounted, onUnmounted } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
 const Layout = DefaultTheme.Layout
+
+const showBackTop = ref(false)
 
 let onScroll: (() => void) | undefined
 
@@ -16,6 +18,7 @@ onMounted(() => {
     const t = Math.min(1, y / RANGE)
     root.style.setProperty('--ms-nav-alpha', t.toFixed(3))
     root.style.setProperty('--ms-nav-blur', `${(t * MAX_BLUR).toFixed(1)}px`)
+    showBackTop.value = y > 400
   }
   window.addEventListener('scroll', onScroll, { passive: true })
   window.addEventListener('resize', onScroll, { passive: true })
@@ -27,6 +30,10 @@ onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)
   window.removeEventListener('resize', onScroll)
 })
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+}
 </script>
 
 <template>
@@ -36,6 +43,16 @@ onUnmounted(() => {
         <div class="ms-nav-veil__blur" />
         <div class="ms-nav-veil__tint" />
       </div>
+      <button
+        type="button"
+        class="ms-back-top"
+        :class="{ visible: showBackTop }"
+        aria-label="回到顶部"
+        title="回到顶部"
+        @click="scrollToTop"
+      >
+        <span class="ms-icon" aria-hidden="true">keyboard_arrow_up</span>
+      </button>
     </template>
   </Layout>
 </template>
