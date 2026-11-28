@@ -1,22 +1,18 @@
 {
-  "name": "vuepress-docs",
+  "name": "novel-macroying-cn",
   "version": "1.0.0",
   "private": true,
-  "description": "基于 VuePress 2 的文档站",
+  "description": "MacroYing 的文学小站 —— novel.macroying.cn（VitePress 2）",
   "type": "module",
   "scripts": {
-    "dev": "vuepress dev docs --host 127.0.0.1 --port 8080",
-    "build": "vuepress build docs",
-    "clean": "vuepress clean docs",
+    "dev": "vitepress dev docs --host 127.0.0.1 --port 8080",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs --host 127.0.0.1 --port 8080",
     "serve": "bash serve.sh",
     "stop": "bash stop.sh",
     "deploy": "deno -Ar https://host.retiehe.com/cli deploy"
   },
   "devDependencies": {
-    "@vuepress/bundler-vite": "2.0.0-rc.32",
-    "@vuepress/plugin-search": "2.0.0-rc.139",
-    "@vuepress/theme-default": "2.0.0-rc.139",
-    "sass": "^1.108.2",
-    "vuepress": "2.0.0-rc.32"
+    "vitepress": "2.0.0-alpha.21"
   }
 }

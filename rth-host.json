@@ -1,5 +1,5 @@
 {
-	"outdir": "docs/.vuepress/dist",
+	"outdir": "docs/.vitepress/dist",
 	"site": "novel.macroying.cn",
 	"build": "build"
 }

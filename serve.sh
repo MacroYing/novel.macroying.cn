@@ -12,7 +12,7 @@ if [ -f "$PIDFILE" ] && kill -0 "$(cat "$PIDFILE")" 2>/dev/null; then
   exit 0
 fi
 
-setsid nohup node node_modules/vuepress/bin/vuepress.js dev docs \
+setsid nohup node node_modules/vitepress/bin/vitepress.js dev docs \
   --host 127.0.0.1 --port 8080 > "$LOG" 2>&1 < /dev/null &
 echo $! > "$PIDFILE"
 
