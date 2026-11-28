@@ -13,6 +13,7 @@
     "deploy": "deno -Ar https://host.retiehe.com/cli deploy"
   },
   "devDependencies": {
+    "markdown-it": "^15.0.3",
     "vitepress": "2.0.0-alpha.21"
   }
 }

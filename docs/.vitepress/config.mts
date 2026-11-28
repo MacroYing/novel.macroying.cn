@@ -30,6 +30,7 @@ export default defineConfig({
       { text: '作品', link: '/works/' },
       { text: '关于', link: '/about.html' },
       { text: '版权', link: '/copyright.html' },
+      { text: '写作', link: '/editor.html' },
     ],
 
     sidebar: {
@@ -46,6 +47,7 @@ export default defineConfig({
           items: [
             { text: '关于作者', link: '/about.html' },
             { text: '版权与转载', link: '/copyright.html' },
+            { text: '写作台', link: '/editor.html' },
           ],
         },
       ],
