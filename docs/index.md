@@ -13,7 +13,7 @@ hero:
       text: 开始阅读
       link: /works/
     - theme: alt
-      text: 关于作者
+      text: 关于
       link: /about.html
     - theme: alt
       text: 主站
