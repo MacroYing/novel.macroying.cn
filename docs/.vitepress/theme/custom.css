@@ -52,6 +52,88 @@
   object-fit: cover;
 }
 
+
+/* ---------- 顶栏：渐进式模糊（参考 macroying.cn） ---------- */
+/* 滚动时由 Layout.vue 写入 --ms-nav-alpha / --ms-nav-blur */
+:root {
+  --ms-nav-alpha: 0;
+  --ms-nav-blur: 0px;
+
+  /* 顶栏与移动端吸顶导航的材质：半透明 + 背景模糊 */
+  --vp-nav-backdrop-filter: saturate(180%) blur(var(--ms-nav-blur));
+  --vp-nav-bg-color: color-mix(
+    in srgb,
+    var(--vp-c-bg) calc(var(--ms-nav-alpha) * 76%),
+    transparent
+  );
+  --vp-nav-home-bg-color: transparent;
+  --vp-local-nav-bg-color: var(--vp-nav-bg-color);
+}
+
+/* 顶栏下方再垫一层更高的模糊，让材质向下渐隐（父级不能带 mask/overflow，
+   否则 Chromium 里 backdrop-filter 会失效） */
+.ms-nav-veil {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: calc(var(--vp-nav-height) + 64px);
+  z-index: calc(var(--vp-z-index-nav) - 1);
+  pointer-events: none;
+}
+
+.ms-nav-veil__blur,
+.ms-nav-veil__tint {
+  position: absolute;
+  inset: 0;
+  opacity: var(--ms-nav-alpha);
+  transition: opacity 0.3s ease;
+}
+
+.ms-nav-veil__blur {
+  -webkit-backdrop-filter: blur(var(--ms-nav-blur)) saturate(180%);
+  backdrop-filter: blur(var(--ms-nav-blur)) saturate(180%);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 42%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 42%, transparent 100%);
+}
+
+.ms-nav-veil__tint {
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--vp-c-bg) 45%, transparent) 0%,
+    transparent 92%
+  );
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 34%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 34%, transparent 100%);
+}
+
+/* 不支持 backdrop-filter 时退回半透明底色 */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .ms-nav-veil__blur {
+    display: none;
+  }
+
+  :root {
+    --vp-nav-bg-color: color-mix(
+      in srgb,
+      var(--vp-c-bg) calc(var(--ms-nav-alpha) * 96%),
+      transparent
+    );
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ms-nav-veil__blur,
+  .ms-nav-veil__tint {
+    transition: none;
+  }
+}
+
+/* 60rem 以下顶栏不吸顶，材质交给吸顶的 VPLocalNav，不铺这层 veil */
+@media (max-width: 59.99rem) {
+  .ms-nav-veil {
+    display: none;
+  }
+}
+
 /* ---------- 首页 ---------- */
 /* 头像式站标：方图裁成圆形 */
 .VPHero .image-src {
