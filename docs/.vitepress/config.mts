@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { sectionSidebar } from './sidebar.mts'
 
 export default defineConfig({
   lang: 'zh-CN',
@@ -33,27 +34,13 @@ export default defineConfig({
       { text: '关于', link: '/about.html' },
     ],
 
+    // 三个栏目自动扫描目录生成侧边栏：新建 .md 即入目录，
+    // 标题取 frontmatter title，没有则取第一个一级标题；
+    // 顺序可用 frontmatter order 指定，缺省按文件名自然排序。
     sidebar: {
-      '/wujieyoubian/': [
-        {
-          text: '无界有边',
-          items: [{ text: '目录', link: '/wujieyoubian/' }],
-          // 新增章节后按这个格式登记：
-          // { text: '第一章', link: '/wujieyoubian/chapter-01.html' },
-        },
-      ],
-      '/settings/': [
-        {
-          text: '设定集',
-          items: [{ text: '目录', link: '/settings/' }],
-        },
-      ],
-      '/stories/': [
-        {
-          text: '短篇',
-          items: [{ text: '目录', link: '/stories/' }],
-        },
-      ],
+      '/wujieyoubian/': [{ text: '无界有边', items: sectionSidebar('wujieyoubian') }],
+      '/settings/': [{ text: '设定集', items: sectionSidebar('settings') }],
+      '/stories/': [{ text: '短篇', items: sectionSidebar('stories') }],
       '/': [
         {
           text: '站点',

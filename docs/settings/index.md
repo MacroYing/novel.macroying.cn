@@ -5,9 +5,9 @@
 与故事相关的世界观、人物、名词等设定整理于此，便于查阅，也备日后修订。
 
 <!--
-新增一条：
-1. 在本目录新建条目文件，比如 world.md、characters.md；
-2. 到 docs/.vitepress/config.mts 的 sidebar 里 '/settings/' 下登记。
+新增一条：直接在本目录新建 .md 文件即可，侧边栏会自动收录。
+  - 标题取 frontmatter title，没写则取第一个一级标题
+  - 顺序按 frontmatter order，没写则按文件名排序
 -->
 
 ## 条目

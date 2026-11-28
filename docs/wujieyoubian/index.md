@@ -5,9 +5,10 @@
 《无界有边》的正文连载于此。目录随更新补充。
 
 <!--
-新增一章：
-1. 在本目录新建 chapter-01.md，frontmatter 写 pageClass: chapter-page；
-2. 到 docs/.vitepress/config.mts 的 sidebar 里 '/wujieyoubian/' 下登记这一章。
+新增一章：直接在本目录新建 .md 文件即可，侧边栏会自动收录。
+  - frontmatter 写 pageClass: chapter-page（正文页样式）
+  - 标题取 frontmatter title，没写则取第一个一级标题
+  - 顺序按 frontmatter order，没写则按文件名排序（chapter-01、chapter-02…）
 -->
 
 ## 目录
