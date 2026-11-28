@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   lang: 'zh-CN',
-  title: 'macroLiterature',
+  title: 'macroSpace',
   description: 'MacroYing 的文学小站 —— 只送大脑。',
 
   head: [
@@ -23,7 +23,7 @@ export default defineConfig({
 
   themeConfig: {
     logo: '/images/avatar.jpg',
-    siteTitle: 'macroLiterature',
+    siteTitle: 'macroSpace',
 
     nav: [
       { text: '首页', link: '/' },

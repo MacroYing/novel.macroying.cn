@@ -1,6 +1,6 @@
-# novel.macroying.cn
+# macroSpace
 
-MacroYing 的文学小站源码，基于 **VitePress 2**（默认主题 + 绿色配色）。
+MacroYing 的文学小站源码（域名 novel.macroying.cn），基于 **VitePress 2**（默认主题 + 绿色配色）。
 
 线上地址：<https://novel.macroying.cn>
 

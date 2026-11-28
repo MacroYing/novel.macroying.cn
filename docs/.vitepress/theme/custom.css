@@ -45,6 +45,13 @@
   -webkit-font-smoothing: antialiased;
 }
 
+/* ---------- 顶栏站标：圆角头像 ---------- */
+.VPNavBarTitle .VPImage.logo,
+.VPNavBarTitle .logo {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 /* ---------- 首页 ---------- */
 /* 头像式站标：方图裁成圆形 */
 .VPHero .image-src {

@@ -2,12 +2,12 @@
 layout: home
 
 hero:
-  name: macroLiterature
+  name: macroSpace
   text: 把写下的句子安放在这里
   tagline: 只送大脑。
   image:
     src: /images/avatar.jpg
-    alt: macroLiterature
+    alt: macroSpace
   actions:
     - theme: brand
       text: 开始阅读
