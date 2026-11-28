@@ -20,22 +20,22 @@ hero:
       link: https://macroying.cn/
 
 features:
-  - icon: 📖
+  - icon: auto_stories
     title: 作品
     details: 小说、短篇与随笔，按分类放在作品页，一章一章读下去。
-  - icon: 🖋️
+  - icon: format_align_left
     title: 中文排版
     details: 首行缩进、行距与字号都为长时间阅读调过，长文不累。
-  - icon: 🌙
+  - icon: dark_mode
     title: 深色模式
     details: 跟随系统或手动切换，夜里看书不刺眼。
-  - icon: 🔍
+  - icon: search
     title: 搜索
     details: 按 Ctrl+K 或 / 唤起搜索，作品、章节与句子都能找。
-  - icon: 📱
+  - icon: smartphone
     title: 手机阅读
     details: 窄屏自动排列，目录收进抽屉，一点就到。
-  - icon: ⚡
+  - icon: rocket_launch
     title: 自动部署
     details: 推送到仓库即自动构建上线，几十秒后可见。
 ---
