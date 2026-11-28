@@ -3,21 +3,22 @@
 #
 # 依赖：npm、python3 + fonttools（pip install fonttools）
 # 用法：
-#   bash tools/build-icons.sh                       # 用默认的 7 个图标
+#   bash tools/build-icons.sh                       # 用默认的 6 个图标
 #   bash tools/build-icons.sh search dark_mode ...  # 指定图标名（Material Symbols 的 ligature 名）
 #
-# 产物：docs/public/fonts/material-symbols-rounded.woff2（Rounded 风格）
+# 产物：docs/public/fonts/material-symbols-rounded.<hash>.woff2（文件名带哈希，避免浏览器缓存旧图标）
 # 之后再改 docs/index.md 的 features.icon，填对应图标名即可。
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
-OUT=docs/public/fonts/material-symbols-rounded.woff2
+OUTDIR=docs/public/fonts
+CSS=docs/.vitepress/theme/custom.css
 WORK=$(mktemp -d)
 trap 'rm -rf "$WORK"' EXIT
 
 ICONS=("$@")
 if [ ${#ICONS[@]} -eq 0 ]; then
-  ICONS=(auto_stories format_align_left dark_mode search smartphone rocket_launch keyboard_arrow_up)
+  ICONS=(auto_stories format_align_left dark_mode search smartphone rocket_launch)
 fi
 TEXT=$(printf '%s' "${ICONS[@]}")
 echo "图标：${ICONS[*]}"
@@ -27,12 +28,12 @@ npm pack @material-symbols/font-400 --silent >/dev/null
 tar -xzf material-symbols-font-400-*.tgz
 FONT=package/material-symbols-rounded.woff2
 
-python3 - "$FONT" "$TEXT" "$OLDPWD/$OUT" <<'PY'
+python3 - "$FONT" "$TEXT" "$OLDPWD/$OUTDIR" "$OLDPWD/$CSS" <<'PY'
 import sys
 from fontTools.ttLib import TTFont
 from fontTools.varLib.instancer import instantiateVariableFont
 
-src, text, out = sys.argv[1], sys.argv[2], sys.argv[3]
+src, text, outdir, css_path = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
 
 # 1) woff2 -> 静态字体（FILL 轴固定为 1，实心图标）
 font = TTFont(src)
@@ -54,6 +55,28 @@ subsetter = subset.Subsetter(options=opts)
 subsetter.populate(text=text)
 subsetter.subset(font)
 font.flavor = "woff2"
+import glob, hashlib, os, re
+
+out = os.path.join(outdir, "material-symbols-rounded.pending.woff2")
 font.save(out)
-print(f"已生成 {out}")
+digest = hashlib.sha256(open(out, "rb").read()).hexdigest()[:8]
+final = os.path.join(outdir, f"material-symbols-rounded.{digest}.woff2")
+os.replace(out, final)
+
+# 删掉旧版本，避免 public 里堆积
+for old in glob.glob(os.path.join(outdir, "material-symbols-rounded*.woff2")) + glob.glob(
+    os.path.join(outdir, "material-symbols-icons*.woff2")
+):
+    if old != final:
+        os.remove(old)
+
+# 把 custom.css 里的字体地址换成新哈希
+css = open(css_path, encoding="utf-8").read()
+css = re.sub(
+    r"url\('/fonts/material-symbols-[^']+'\)",
+    f"url('/fonts/{os.path.basename(final)}')",
+    css,
+)
+open(css_path, "w", encoding="utf-8").write(css)
+print(f"已生成 {final}，并更新 custom.css")
 PY

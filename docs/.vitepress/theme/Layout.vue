@@ -51,7 +51,9 @@ function scrollToTop() {
         title="回到顶部"
         @click="scrollToTop"
       >
-        <span class="ms-icon" aria-hidden="true">keyboard_arrow_up</span>
+        <svg class="ms-back-top__icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7.41 15.41 12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="currentColor" />
+        </svg>
       </button>
     </template>
   </Layout>
