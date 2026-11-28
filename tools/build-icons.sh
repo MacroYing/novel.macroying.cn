@@ -34,10 +34,10 @@ from fontTools.varLib.instancer import instantiateVariableFont
 
 src, text, out = sys.argv[1], sys.argv[2], sys.argv[3]
 
-# 1) woff2 -> 静态字体（FILL 轴固定为 0，只保留描边图标）
+# 1) woff2 -> 静态字体（FILL 轴固定为 1，实心图标）
 font = TTFont(src)
 font.flavor = None
-font = instantiateVariableFont(font, {"FILL": 0}, inplace=True, updateFontNames=False)
+font = instantiateVariableFont(font, {"FILL": 1}, inplace=True, updateFontNames=False)
 static = "/tmp/material-symbols-static.ttf"
 font.save(static)
 
